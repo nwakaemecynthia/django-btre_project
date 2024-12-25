@@ -42,3 +42,12 @@
 (DO NOT MODIFY YOUR `manage.py` file as it is a configuration file used inplace of Django Admin (since we currently are not using django admin for our project))
     `python manage.py help`
 
+- To run your server, django project, locally
+    `python manage.py runserver`
+
+- Before you deploy your application, ensure to change `DEBUG = False` in `settings.py` only use `True` when running app locally
+
+- `ALLOWED_HOSTS` in `settings.py` should list the domain name for your application
+
+- To create pages in your Django app, run
+    `python manage.py startapp pages`
