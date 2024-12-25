@@ -1,0 +1,44 @@
+- From to run a solo python file
+    `python3 filename.py`
+
+- To check the current python version in use
+    `python3 --version`
+
+- To view the list of dependencies/libraries ina python project run the below command
+    `pip3 freeze`
+
+- To exclude globaly installed python dependencies/libraries from a project. You will need to create a Virtual Environment with venv
+    - Create a Virtual Environment in the project directory run the below command
+        `python3 -m venv ./venv` 
+
+    - To activate the already created Virtual Environment
+        - On Mac
+            `source ./venv/bin/activate`
+        - On Windows
+            `python ./venv/Scripts/activate.bat` or `./venv/Scripts/activate.bat`
+
+        (The path is a way of specifying which of your folders/project you need a Virtual Environment)
+        if the path above don't work, do the absolute path e.g (c:/user/.../project_name/venv)
+
+    - To delete a Virtual Environment, run the below command
+        `deactivate`
+
+    - PS: Ones Virtual Environment is activated you can run all commands with `pip3` as `pip` and `python3` as `python`
+        e.g `python --version` will work
+
+- To install Django
+    - When using venv
+        `pip install django`
+    - When venv is not in use and python 3 upwards is installed in your PC
+        `pip3 install django`
+
+ - To get instruction on what django has out of the box, run 
+    `django-admin help`
+
+- To start django project
+    `django-admin startproject btre .` (The dot is for current directory)
+
+- To get the list of commands that is supported in your django-admin project run
+(DO NOT MODIFY YOUR `manage.py` file as it is a configuration file used inplace of Django Admin (since we currently are not using django admin for our project))
+    `python manage.py help`
+
