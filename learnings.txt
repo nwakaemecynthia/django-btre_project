@@ -74,4 +74,60 @@
         - To exit the postgres terminal, run
             `\q`
     - POSTGRESS ADMIN from; https://www.pgadmin.org/
-        - follow the installation wiszard
+        - follow the installation wizard
+
+- To install and setup progress in your Django project
+    - ensure you are on your Virtual Environment (venv)
+    - run the following commands
+        - install/update postgress using brew (If you don't have it)
+            `brew install postgresql`
+        - `pip install psycopg2`
+        - `pip install psycopg2-binary`
+    - To setup postgresql
+        - Navigate to settings.py; 
+        - search for `DATABASES`
+        - setup all your drivers; example for Django
+            DATABASES = {
+                "default": {
+                    "ENGINE": "django.db.backends.postgresql",
+                    "NAME": "[YOUR_DATABASE_NAME]",
+                    "USER": "[YOUR_USER_NAME]",
+                    "PASSWORD": "[YOUR_DATABASE_PASSWORD]",
+                    "HOST": "localhost",
+                    "PORT": "5432",
+                }
+            }
+- Ensure you hide sensitive data in `.env` 
+    e.g DB_PASSWORD=your_database_password
+
+    - To access the sensitive data
+        - Install python-decouple or django-environ to help manage your local Environment Variales; run
+            `pip install python-decouple`
+        - Access the Environment Variales with the below example
+            from decouple import config
+
+            DATABASES = {
+                'default': {
+                    'ENGINE': 'django.db.backends.postgresql',
+                    'NAME': 'your_database_name',
+                    'USER': 'your_database_user',
+                    'PASSWORD': config('DB_PASSWORD', default='default_password'),
+                    'HOST': 'localhost',
+                    'PORT': '5432',
+                }
+            }
+        -Add .env to .gitignore Ensure the .env file is excluded from your repository:
+            e.g # .gitignore
+                .env
+
+
+- To Migrate your database
+    - What is migration - migrations are not unique to Django. The concept of migrations is widely used in many 
+    frameworks and ORMs (Object-Relational Mappers) to manage changes to database schemas. 
+    However, Django provides an automated and integrated system for handling migrations
+
+    - To run and put Django default migration files into your application run
+        `python manage.py migrate`
+
+
+(arairemi25th!)
