@@ -17,6 +17,3 @@ def login(request):
 
 def register(request):
     return render(request, 'pages/register.html')
-
-def listings(request):
-    return render(request, 'pages/listings.html')
