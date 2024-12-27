@@ -129,5 +129,14 @@
     - To run and put Django default migration files into your application run
         `python manage.py migrate`
 
+- To use `ImageField` model; ensure you have `Pillow` installed.
+    `pip install Pillow`
 
-(arairemi25th!)
+- After creating your models (DB schemas; see for help: https://docs.djangoproject.com/en/5.1/ref/models/fields/)
+    - Create a file that we can run to then update the database using the below command
+        `python manage.py makemigrations`
+    - Proceed to migrate the files to the DB using
+        `python manage.py migrate`
+
+- To check out what the query will look like, run the command
+    `python manage.py sqlmigrate NAME_OF_MODULE_FOLDER MIGRATION_FILE_NUMBER` i.e `python manage.py sqlmigrate listings 0001`
