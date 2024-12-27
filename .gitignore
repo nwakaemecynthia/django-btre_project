@@ -181,6 +181,8 @@ cython_debug/
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
+.idea
+
 # Local History for Visual Studio Code
 .history/
 
