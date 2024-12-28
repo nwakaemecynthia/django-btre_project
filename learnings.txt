@@ -159,7 +159,7 @@ only an admin should mutate
         `MEDIA_ROOT = os.path.join(BASE_DIR, 'media')`
         `MEDIA_URL = '/media/'`
     - in your project core folder (e.g btre) i.e the folder where settings is,
-        - navigae the the `urls.py` (which is a sibling of `settings.py`) and config to allow for media with the below code to the `urlpatterns` list
+        - navigate the the `urls.py` (which is a sibling of `settings.py`) and config to allow for media with the below code to the `urlpatterns` list
             `+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)`
 
 - To customize Django admin portal
@@ -173,3 +173,19 @@ only an admin should mutate
 - To modify and add columns to the default table that shows in Django admin
     - Go to the model folder into `admin.py` (in this case realtors or listings)
     - Create a class with parameters you need
+
+- Install the dependence to help give django intellisense and not flag non-error data as error
+    `pip install pylint-django`
+
+    - Then in Visual Studio Code goto: User Settings (Ctrl + , or File > Preferences > Settings if available ) 
+    Put in the following (please note the curly braces which are required for custom user settings.json in VSC):
+        `"pylint.args": ["load-plugins=pylint_django"],`
+
+- To fetch data from database and pass into your HTML
+    - Go to the model folder into `views.py` (in this case realtors or listings)
+    - receive the data you passed from the template
+
+- To add a formatter for numbers which introduces comma after every 3 digit.
+    - Go to `settings.py` -> `INSTALLED_APPS`
+    - add to the list `'django.contrib.humanize'`
+    - Go to the template where you want to use it and load it `{% load humanize %}`
