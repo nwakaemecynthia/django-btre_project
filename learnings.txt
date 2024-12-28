@@ -159,7 +159,7 @@ only an admin should mutate
         `MEDIA_ROOT = os.path.join(BASE_DIR, 'media')`
         `MEDIA_URL = '/media/'`
     - in your project core folder (e.g btre) i.e the folder where settings is,
-        - navigae the the `urls.py` (which is a sibling of `settings.py`) and config to allow for media with the below code
+        - navigae the the `urls.py` (which is a sibling of `settings.py`) and config to allow for media with the below code to the `urlpatterns` list
             `+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)`
 
 - To customize Django admin portal
@@ -169,3 +169,7 @@ only an admin should mutate
 - To add more static file (just as we did previously)
     - Go to your ptoject config folder (btre)
     - Navigate to static and then the folder you want to access, in my case it is static -> css -> admin.css
+
+- To modify and add columns to the default table that shows in Django admin
+    - Go to the model folder into `admin.py` (in this case realtors or listings)
+    - Create a class with parameters you need
