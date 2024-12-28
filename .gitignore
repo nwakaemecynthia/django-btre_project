@@ -1,7 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/django,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,visualstudiocode
-.DS_Store
-/.DS_Store
+
 
 ### Django ###
 *.log
@@ -195,5 +194,6 @@ cython_debug/
 # Ignore all local history of files
 .history
 .ionide
+.DS_Store
 
 # End of https://www.toptal.com/developers/gitignore/api/django,visualstudiocode

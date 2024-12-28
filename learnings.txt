@@ -160,4 +160,12 @@ only an admin should mutate
         `MEDIA_URL = '/media/'`
     - in your project core folder (e.g btre) i.e the folder where settings is,
         - navigae the the `urls.py` (which is a sibling of `settings.py`) and config to allow for media with the below code
-            ``
+            `+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)`
+
+- To customize Django admin portal
+    - create a folder called `admin` in your template directory
+    - create a HTML file in the admin folder called `base_site.html`
+
+- To add more static file (just as we did previously)
+    - Go to your ptoject config folder (btre)
+    - Navigate to static and then the folder you want to access, in my case it is static -> css -> admin.css
