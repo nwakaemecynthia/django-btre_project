@@ -140,3 +140,24 @@
 
 - To check out what the query will look like, run the command
     `python manage.py sqlmigrate NAME_OF_MODULE_FOLDER MIGRATION_FILE_NUMBER` i.e `python manage.py sqlmigrate listings 0001`
+
+- Django by default has a admin portal. This helps for application with no custom admin portal so that one can have access to feature/requirements that 
+only an admin should mutate
+    - To see the UI of the super admin. run your django server and navigate to `/admin`
+    - To create the necessary credentials in order to have access run
+        `python manage.py help`
+    - under auth you will see the command needed to create a super admin. Therefor run the below command
+        `python manage.py createsuperuser`
+
+- To add your created models (information that can be saved in the database) into the admin portal (Django default admin)
+    - Register your models on the admin.py (e.g for listings models, register it on listings' admin) by writing the below line of code
+        `admin.site.register(MODEL_NAME)`
+
+- From `settings.py` setup folder for images just as we did for static files. To do this
+    - navigate to the bottom of `settings.py` file
+    - insert the below code
+        `MEDIA_ROOT = os.path.join(BASE_DIR, 'media')`
+        `MEDIA_URL = '/media/'`
+    - in your project core folder (e.g btre) i.e the folder where settings is,
+        - navigae the the `urls.py` (which is a sibling of `settings.py`) and config to allow for media with the below code
+            ``
