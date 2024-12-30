@@ -9,9 +9,12 @@ def index(request):
     # return render(request, 'listings/listings.html', {
     #     'name': 'Brad'
     # })
-    listings = Listing.objects.all()
-    #Paginate the data where 3 is the page size (total number of data per page)
-    paginator = Paginator(listings, 3)  # Show 25 contacts per page.
+    
+    # listings = Listing.objects.all()
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+    
+    #Paginate the data where 6 is the page size (total number of data per page)
+    paginator = Paginator(listings, 6)
     page = request.GET.get("page")
     paged_listings = paginator.get_page(page)
 
