@@ -179,7 +179,7 @@ only an admin should mutate
 
     - Then in Visual Studio Code goto: User Settings (Ctrl + , or File > Preferences > Settings if available ) 
     Put in the following (please note the curly braces which are required for custom user settings.json in VSC):
-        `"pylint.args": ["load-plugins=pylint_django"],`
+        `"pylint.args": ["--load-plugins=pylint_django", "--errors-only"],`
 
 - To fetch data from database and pass into your HTML
     - Go to the model folder into `views.py` (in this case realtors or listings)

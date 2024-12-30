@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from realtors.models import Realtor
+
+
 # Create your views here.
 
 # def index(request):
@@ -10,7 +13,9 @@ def index(request):
     return render(request, 'pages/index.html')
 
 def about(request):
-    return render(request, 'pages/about.html')
+    realtors = Realtor.objects.all
+    context = {'realtors' : realtors}
+    return render(request, 'pages/about.html', context)
 
 def login(request):
     return render(request, 'pages/login.html')
