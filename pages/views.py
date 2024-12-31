@@ -27,9 +27,3 @@ def about(request):
     mvp_realtor = Realtor.objects.filter(is_mvp=True)
     data = {'realtors' : realtors, 'mvp_realtor': mvp_realtor}
     return render(request, 'pages/about.html', data)
-
-def login(request):
-    return render(request, 'pages/login.html')
-
-def register(request):
-    return render(request, 'pages/register.html')
