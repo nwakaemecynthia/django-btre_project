@@ -64,10 +64,14 @@
     </div>
   </div>
 </section>
+<br>
 
 <!-- Listings -->
 <section id="listings" class="py-5">
   <div class="container">
+    <!-- ALERTS -->
+    {% include 'partials/_alerts.html' %}
+    
     <h3 class="text-center mb-3">Latest Listings</h3>
     <div class="row">
       {% if listings %}
