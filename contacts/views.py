@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.contrib import messages
 from django.core.mail import send_mail
 
 from decouple import config
 from .models import Contact
+
 
 def contact(request):
     if request.method == "POST":
@@ -23,18 +24,24 @@ def contact(request):
             if has_contact:
                 messages.error(request, 'You have already made an inquiry for this listing')
                 return redirect('/listings/'+listing_id)
+        else:
+            has_contact = Contact.objects.all().filter(listing_id=listing_id, email=email)
+            if has_contact:
+                messages.error(request, 'You have already made an inquiry for this listing with this email address')
+                return redirect('/listings/'+listing_id)
        
 
         contact = Contact(listing=listing, user_id=user_id, listing_id=listing_id, name=name, email=email, phone=phone, message=message)
+        
         contact.save()
         
         # Send Email after saving listing inquiry 
         send_mail(
-                "Property Listing Inquiry",  # SUBJECT
-                f"There has been an inquiry for {listing}. Sign into the admin panel for more information.",  # BODY
-                config('EMAIL_HOST_USER', default='cynthia@example.com'),
-                [realtor_email, config('EMAIL_HOST_USER', default='username@gmail.com')],
-                fail_silently=False
+            f'Property Listing Inquiry - {listing}',  # SUBJECT
+            f"There has been an inquiry for {listing}. Sign into the admin panel for more information.",  # BODY
+            config('EMAIL_HOST_USER', default='cynthian@spocket.co'), # FROM
+            [realtor_email, config('EMAIL_HOST_USER', default='nwakaemecynthia@gmail.com')], # TO
+            fail_silently=False # FAIL SILENTLY
         )
                     
         messages.success(request, 'Your request has been submitted, A realtor will get back to you soon.')

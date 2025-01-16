@@ -1,3 +1,23 @@
+- To create a new django project
+
+    - Set Up Your Environment
+        - create a directory with your project name
+        - Install Python: Make sure Python 3.7+ is installed. Verify with:
+            `python3 --version`
+        - Install Virtualenv (optional but recommended):
+            `python3 -m venv .venv`
+            `source .venv/bin/activate`  # For macOS/Linux
+            `.venv\Scripts\activate`     # For Windows
+        - pip install django
+    - Create the Django Project
+        - Run the following command to create a new project:
+            `django-admin startproject <project_name>`
+        - Navigate into your project directory:
+            `cd myproject`
+    - Run the Development Server
+        - Start the server to test the setup:
+            `python manage.py runserver`
+    
 - From to run a solo python file
     `python3 filename.py`
 
