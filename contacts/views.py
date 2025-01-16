@@ -39,8 +39,8 @@ def contact(request):
         send_mail(
             f'Property Listing Inquiry - {listing}',  # SUBJECT
             f"There has been an inquiry for {listing}. Sign into the admin panel for more information.",  # BODY
-            config('EMAIL_HOST_USER', default='cynthian@spocket.co'), # FROM
-            [realtor_email, config('EMAIL_HOST_USER', default='nwakaemecynthia@gmail.com')], # TO
+            config('EMAIL_HOST_USER', default='cynthia@example.co'), # FROM
+            [realtor_email, config('EMAIL_HOST_USER', default='cynthia@example.co')],  # TO
             fail_silently=False # FAIL SILENTLY
         )
                     
