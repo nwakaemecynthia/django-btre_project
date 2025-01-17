@@ -35,30 +35,34 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h2>Welcome John</h2>
-        <p>Here are the property listings that you have inquired about</p>
-          {% if listings %}
-            
-        <table class="table">
-          <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Property</th>
-            <th></th>
-          </tr>
-          </thead>
-          <tbody>
-            {% for listing in listings %}
+        <h2>Welcome {{ user.first_name }}</h2>
+        {% if contacts %}
+          <p>Here are the property listings that you have inquired about</p>
+
+          <table class="table">
+            <thead>
             <tr>
-              <td>{{forloop.counter}}</td>
-              <td>{{listing.title}}</td>
-              <td>
-                <a class="btn btn-light" href="{% url 'listing' listing.id %}">View Listing</a>
-              </td>
+              <th scope="col">#</th>
+              <th scope="col">Property</th>
+              <th></th>
             </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {% for contact in contacts %}
+              <tr>
+                <!-- to get the index of the loop -->
+                <!-- <td>{{forloop.counter}}</td> -->
+                <td>{{ contact.id }}</td>
+                <td>{{contact.listing}}</td>
+                <td>
+                  <a class="btn btn-light" href="{% url 'listing' contact.listing_id %}">View Listing</a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p>You have not made any inquiries</p>
         {% endif %}
       </div>
     </div>
