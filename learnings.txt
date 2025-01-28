@@ -209,3 +209,6 @@ only an admin should mutate
     - Go to `settings.py` -> `INSTALLED_APPS`
     - add to the list `'django.contrib.humanize'`
     - Go to the template where you want to use it and load it `{% load humanize %}`
+
+- CREAT A REQUIREMNTS.TXT file with the list of dependencies/libraries and their version on which your project was created on
+    - pip freeze > requirements.txt
